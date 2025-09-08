@@ -2,8 +2,11 @@ import '../styles/ShoppingList.css';
 
 function ShoppingList(){
     return(
-        <div>
+        <div className='shopping-list'>
+            <h2>Nos Sneakers</h2>
+            <div className='sneakers-grid'>
 
+            </div>
         </div>
     );
 }
