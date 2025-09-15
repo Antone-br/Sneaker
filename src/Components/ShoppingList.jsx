@@ -5,7 +5,8 @@ import SneakerItem from './SneakerItem';
 function ShoppingList() {
     return (
         <div className='shopping-list'>
-            <h2>Nos Sneakers</h2>
+            <h2>Antone Barbaud</h2>
+
             <div className='sneakers-grid'>
                 {sneakersList.map((sneaker) => (
                     <SneakerItem
