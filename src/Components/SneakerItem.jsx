@@ -1,16 +1,15 @@
-import '../datas/sneakersList';
-import { sneakersList } from '../datas/sneakersList';
 import '../styles/SneakerItem.css';
 
 
-function SneakerItem(){
+function SneakerItem({nom, marque, prix, style, esthetique, confort}){
     return(
-        <div>
-            <ul>
-                {sneakersList.map((sneaker) => (
-                    <li key={sneaker.id}>{sneaker.nom}</li>
-                ))}
-            </ul>
+        <div className='sneaker-item'>
+            <h3>{nom}</h3>
+            <p>{marque}</p>
+            <p>{prix}</p>
+            <p>{style}</p>
+            <p>{esthetique}</p>
+            <p>{confort}</p>
         </div>
     );
 }
