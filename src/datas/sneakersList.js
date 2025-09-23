@@ -1,12 +1,21 @@
+import airJordan from '../assets/airJordan.jpg';
+import basketsPatch from '../assets/basketsPatch.jpg';
+import chuckTaylor from '../assets/chuckTaylor.jpg';
+
+
+
+
 export const sneakersList = [
     {
         id: "1",
-        nom: "Air Max Isla Sandal",
+        nom: "Baskets Patch",
         marque: "Nike",
         prix: 69.95,
         style: "Casual",
         esthetique: 3,
-        confort: 4
+        confort: 4,
+        image: basketsPatch,
+        bestSeller: true
     },
     {
         id: "2",
@@ -15,7 +24,9 @@ export const sneakersList = [
         prix: 189.99,
         style: "Basketball",
         esthetique: 5,
-        confort: 3
+        confort: 3,
+        image: airJordan,
+        bestSeller: true
     },
     {
         id: "3",
@@ -24,7 +35,10 @@ export const sneakersList = [
         prix: 85.00,
         style: "Casual",
         esthetique: 4,
-        confort: 4
+        confort: 4,
+        image: chuckTaylor,
+        bestSeller: false
+        
     },
     {
         id: "4",
@@ -33,7 +47,9 @@ export const sneakersList = [
         prix: 65.00,
         style: "Lifestyle",
         esthetique: 4,
-        confort: 2
+        confort: 2,
+        image: basketsPatch,
+        bestSeller: false
     },
     {
         id: "5",
@@ -42,7 +58,9 @@ export const sneakersList = [
         prix: 110.00,
         style: "Basketball",
         esthetique: 4,
-        confort: 3
+        confort: 3,
+        image: airJordan,
+        bestSeller: true
     },
     {
         id: "6",
@@ -51,7 +69,9 @@ export const sneakersList = [
         prix: 180.00,
         style: "Running",
         esthetique: 4,
-        confort: 5
+        confort: 5,
+        image: chuckTaylor,
+        bestSeller: false
     },
     {
         id: "7",
@@ -60,7 +80,9 @@ export const sneakersList = [
         prix: 75.00,
         style: "Casual",
         esthetique: 3,
-        confort: 3
+        confort: 3,
+        image: basketsPatch,
+        bestSeller: false
     },
     {
         id: "8",
@@ -69,7 +91,9 @@ export const sneakersList = [
         prix: 100.00,
         style: "Skateboard",
         esthetique: 4,
-        confort: 3
+        confort: 3,
+        image: airJordan,
+        bestSeller: false
     },
     {
         id: "9",
@@ -78,7 +102,9 @@ export const sneakersList = [
         prix: 140.00,
         style: "Lifestyle",
         esthetique: 3,
-        confort: 4
+        confort: 4,
+        image: chuckTaylor,
+        bestSeller: false
     },
     {
         id: "10",
@@ -87,6 +113,8 @@ export const sneakersList = [
         prix: 120.00,
         style: "Running",
         esthetique: 3,
-        confort: 4
+        confort: 4,
+        image: basketsPatch,
+        bestSeller: false
     }
 ];
