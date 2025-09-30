@@ -10,26 +10,26 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (sneaker) => {
-  setCart((prevCart) => {
-    const existingItem = prevCart.find((item) => item.id === sneaker.id);
+    setCart((prevCart) => {
+      const existingItem = prevCart.find(item => item.id === sneaker.id);
 
-    if (existingItem) {
-      return prevCart.map((item) =>
-        item.id === sneaker.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-    } else {
-      return [...prevCart, { ...sneaker, quantity: 1 }];
-    }
-  });
-};
+      if (existingItem) {
+        return prevCart.map(item =>
+          item.id === sneaker.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prevCart, { ...sneaker, quantity: 1 }];
+      }
+    });
+  };
 
 
   return (
     <div>
       <Banner />
-      <ShoppingList addToCart={addToCart} />
+      <ShoppingList onAddToCart={addToCart} />
       <Cart cartItems={cart} />
 
 
