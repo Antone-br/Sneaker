@@ -1,11 +1,20 @@
 import '../styles/Cart.css';
 
-function Cart({ cartItems }) {
+function Cart({ cartItems, onRemoveFromCart, onClearCart }) {
 
     const totalItems = cartItems.reduce((sum, item) =>
         sum + item.quantity, 0)
     const totalPrice = cartItems.reduce((sum, item) =>
         sum + (item.prix * item.quantity), 0);
+
+    const handleRemoveFromCart = (id) => {
+        console.log("l'id suppimé: ", id);
+        onRemoveFromCart(id);
+    };
+    const handleClearCart = () => {
+        onClearCart();
+    }
+    
     if (cartItems.length === 0) {
         return (
             <div className="cart">
@@ -32,6 +41,7 @@ function Cart({ cartItems }) {
                             <p className="cart-item-price">
                                 {item.prix * item.quantity}€
                             </p>
+                            <button onClick={() => handleRemoveFromCart(item.id)}>Supprimer l'article</button>
                         </div>
                     </div>
                 ))}
@@ -40,6 +50,7 @@ function Cart({ cartItems }) {
                 <h3>
                     Total : {totalPrice}€
                 </h3>
+                <button onClick={handleClearCart}>Suppimer tout les arcticles</button>
             </div>
         </div>
     );

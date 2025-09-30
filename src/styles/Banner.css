@@ -71,3 +71,25 @@
         font-size: 1.1rem;
     }
 }
+
+.cart-toggle {
+  padding: 8px 15px;
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cart-dropdown {
+  position: absolute;
+  width: 450px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  margin-top: 10px;
+  z-index: 1000;
+}

@@ -4,10 +4,18 @@ import Footer from './Footer';
 import SneakerItem from './SneakerItem';
 import ShoppingList from './ShoppingList';
 import Cart from './Cart';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [cart, setCart] = useState([]);
+
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (sneaker) => {
     setCart((prevCart) => {
@@ -25,12 +33,38 @@ function App() {
     });
   };
 
+  function removeFromCart(id) {
+    setCart((prevCart) => {
+      return prevCart.reduce((acc, item) => {
+
+        if (item.id === id) {
+          console.log("Article trouvé à supprimer : ", item);
+          if (item.quantity > 1) {
+            acc.push({ ...item, quantity: item.quantity - 1 });
+            console.log("Quantité > 1, décrémentation :", item);
+          } else {
+            console.log("Quantité = 1, suppression totale");
+          }
+        } else {
+          acc.push(item);
+        }
+        return acc;
+      }, []);
+    });
+  }
+
+  function clearCart() {
+    setCart([]);
+  }
+
+
+
 
   return (
     <div>
-      <Banner />
+      <Banner cartItems={cart} onRemoveFromCart={removeFromCart} onClearCart={clearCart} />
       <ShoppingList onAddToCart={addToCart} />
-      <Cart cartItems={cart} />
+      {/* <Cart cartItems={cart} onRemoveFromCart={removeFromCart} onClearCart={clearCart} /> */}
 
 
       {/* <Footer /> */}
