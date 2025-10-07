@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
+  /* Gestion Cart */
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
@@ -54,17 +55,12 @@ function App() {
   function clearCart() {
     setCart([]);
   }
-
-
-
+  /* Fin Gestion Cart */
 
   return (
     <div>
       <Banner cartItems={cart} onRemoveFromCart={removeFromCart} onClearCart={clearCart} />
       <ShoppingList onAddToCart={addToCart} />
-      {/* <Cart cartItems={cart} onRemoveFromCart={removeFromCart} onClearCart={clearCart} /> */}
-
-
       <Footer />
     </div>
   );
