@@ -1,9 +1,7 @@
 import '../styles/App.css';
 import Banner from './Banner';
 import Footer from './Footer';
-import SneakerItem from './SneakerItem';
 import ShoppingList from './ShoppingList';
-import Cart from './Cart';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -67,7 +65,7 @@ function App() {
       {/* <Cart cartItems={cart} onRemoveFromCart={removeFromCart} onClearCart={clearCart} /> */}
 
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

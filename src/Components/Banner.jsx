@@ -22,12 +22,10 @@ function Banner({ cartItems, onRemoveFromCart, onClearCart }) {
         <h1>Sneakers Store</h1>
         <p>Trouvez les sneakers de vos rêves</p>
 
-        {/* Bouton pour ouvrir/fermer le panier */}
         <button className="cart-toggle" onClick={toggleCart}>
           Mon Panier ({cartItems.length})
         </button>
 
-        {/* Dropdown visible seulement si isOpen true */}
         {isOpen && (
           <div className="cart-dropdown">
             <Cart

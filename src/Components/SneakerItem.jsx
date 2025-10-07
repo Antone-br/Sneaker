@@ -3,8 +3,6 @@ import CustomerReview from './CustomerReview';
 import { useState } from 'react';
 
 
-
-
 function SneakerItem({ sneakerData, onAddToCart }) {
 
     const { nom, marque, prix, style, esthetique, confort, image, bestSeller = false} = sneakerData;
@@ -18,16 +16,6 @@ function SneakerItem({ sneakerData, onAddToCart }) {
         onAddToCart(sneakerData);
     }
 
-    // const formatReview = (reviewType, scaleValue) => {
-    //     const scaleType = reviewType === 'confort' ? '🙂' : '💖';
-    //     const icons = scaleType.repeat(scaleValue);
-    //     return `${reviewType}: ${icons} (${scaleValue}/5)`;
-    // }
-    // const handleCliclAvis = () => {
-    //     const esthetismeText = formatReview('esthétisme', esthetique);
-    //     const confortText =  formatReview('confort', confort);
-    //     alert(`Avis pour ${nom}:\n${esthetismeText}\n${confortText}`);
-    // }
     return (
         <div className={`sneaker-item ${bestSeller ? 'best-seller' : ''}`}>
             {bestSeller && <span className='best-seller-badge'>Top vente</span>}
