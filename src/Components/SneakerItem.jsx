@@ -15,7 +15,6 @@ function SneakerItem({ sneakerData, onAddToCart }) {
         console.log('Données transmises', sneakerData);
         onAddToCart(sneakerData);
     }
-
     return (
         <div className={`sneaker-item ${bestSeller ? 'best-seller' : ''}`}>
             {bestSeller && <span className='best-seller-badge'>Top vente</span>}

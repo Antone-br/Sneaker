@@ -15,16 +15,18 @@ function Cart({ cartItems, onRemoveFromCart, onClearCart }) {
         onClearCart();
     }
     
+    
     if (cartItems.length === 0) {
-        return (
-            <div className="cart">
-                <h2>Mon Panier (0)</h2>
-                <p>Votre panier est vide.</p>
-            </div>
-        );
-    }
-    return (
+        return(
         <div className="cart">
+            
+                <h2 className='z-index-1'>Mon Panier (0)</h2>
+                <p className='z-index-1'>Votre panier est vide.</p>
+            </div>
+            );
+            } else {
+                return (
+                <div className="cart">
             <div className="cart-header">
                 <h2>
                     Mon Panier ({totalItems})
@@ -54,6 +56,7 @@ function Cart({ cartItems, onRemoveFromCart, onClearCart }) {
             </div>
         </div>
     );
+}
 
 }
 export default Cart;

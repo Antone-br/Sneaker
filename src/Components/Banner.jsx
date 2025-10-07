@@ -10,6 +10,14 @@ function Banner({ cartItems, onRemoveFromCart, onClearCart }) {
     setIsOpen(prev => !prev);
   };
 
+  const handleBlur = (event) => {
+    const relatedTarget = event.relatedTarget;
+    if (relatedTarget && relatedTarget.closest('.cart-dropdown')) {
+      return;
+    }
+    setIsOpen(false);
+  };
+
   return (
     <header className="banner">
       <img 
@@ -22,12 +30,12 @@ function Banner({ cartItems, onRemoveFromCart, onClearCart }) {
         <h1>Sneakers Store</h1>
         <p>Trouvez les sneakers de vos rêves</p>
 
-        <button className="cart-toggle" onClick={toggleCart}>
+        <button className="cart-toggle" onClick={toggleCart} onBlur={handleBlur} >
           Mon Panier ({cartItems.length})
         </button>
 
         {isOpen && (
-          <div className="cart-dropdown">
+          <div className="cart-dropdown" tabIndex={-1}>
             <Cart
               cartItems={cartItems}
               onRemoveFromCart={onRemoveFromCart}
