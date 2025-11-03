@@ -18,6 +18,7 @@ function Banner({ cartItems, onRemoveFromCart, onClearCart }) {
     setIsOpen(false);
   };
 
+  
   return (
     <header className="banner">
       <img 

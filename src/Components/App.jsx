@@ -57,6 +57,7 @@ function App() {
   }
   /* Fin Gestion Cart */
 
+  
   return (
     <div>
       <Banner cartItems={cart} onRemoveFromCart={removeFromCart} onClearCart={clearCart} />
