@@ -1,96 +1,152 @@
+
 .banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 15px 40px;
+}
+
+.banner-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 40px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px; 
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* --- Section Marque (Logo + Titre) --- */
+.banner-brand {
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    /* Ceci assure que le bloc marque (Logo + Titre) est à gauche */
 }
 
 .banner-logo {
     height: 90px;
     width: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 50%; 
+    object-fit: cover;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3), 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .banner-content {
-    text-align: right;
-    flex-grow: 1;
+    /* Le texte sera naturellement à droite du logo car il est dans le flux */
+    flex-grow: 0;
 }
 
 .banner-content h1 {
-    margin: 0 0 8px 0;
-    font-size: 2.8rem;
-    font-weight: bold;
+    margin: 0 0 5px 0;
+    font-size: 3rem; 
+    font-weight: 700; 
+    letter-spacing: 1px;
 }
 
 .banner-content p {
     margin: 0;
-    font-size: 1.5rem;
-    opacity: 0.7;
+    font-size: 1.2rem; 
+    opacity: 0.85; 
     font-style: italic;
+}
+
+
+/* --- Navigation (à droite) --- */
+.banner-navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+    /* Ceci assure que la navigation reste groupée à droite (grâce à justify-content: space-between de .banner-container) */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: color 0.3s, transform 0.2s;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #ffd700; 
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffd700;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.nav-link:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+/* --- Media Queries (Adaptation mobile/tablette) --- */
+
+@media (max-width: 992px) {
+    .banner {
+        padding: 15px 25px;
+    }
+    .banner-content h1 {
+        font-size: 2.5rem;
+    }
+    .banner-logo {
+        height: 70px;
+    }
 }
 
 @media (max-width: 768px) {
     .banner {
         padding: 15px 20px;
-        flex-direction: column;
-        text-align: center;
     }
-    
-    .banner-content {
-        text-align: center;
-        margin-top: 15px;
+    .banner-container {
+        flex-direction: column; /* Empilement de la marque et de la navigation */
+        gap: 15px;
     }
-    
-    .banner-content h1 {
-        font-size: 2.2rem;
+    .banner-brand {
+        justify-content: center; 
     }
-    
-    .banner-content p {
-        font-size: 1.3rem;
+    .banner-navigation {
+        width: 100%;
+        justify-content: space-around; 
+        padding: 5px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.3); 
+    }
+    .nav-link {
+        font-size: 1.2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .banner {
-        padding: 10px 15px;
+    .banner-brand {
+        flex-direction: column; /* Empiler le logo au-dessus du titre */
+        gap: 5px;
     }
-    
     .banner-logo {
-        height: 70px;
+        height: 60px;
+        margin-bottom: 5px;
     }
-    
+    .banner-content {
+        text-align: center;
+    }
     .banner-content h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
-    
     .banner-content p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
-}
-
-.cart-toggle {
-  padding: 8px 15px;
-  background-color: #1890ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.cart-dropdown {
-  position: absolute;
-  right: 0;
-  width: 450px;
-  max-height: 600px;
-  overflow-y: auto;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  border-radius: 8px;
-  margin-top: 10px;
-  z-index: 1000;
+    .banner-navigation {
+        gap: 15px;
+        font-size: 1rem;
+    }
 }

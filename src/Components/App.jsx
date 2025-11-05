@@ -1,16 +1,21 @@
+import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import '../styles/App.css';
 import Banner from './Banner';
 import Footer from './Footer';
 import ShoppingList from './ShoppingList';
-import { useEffect, useState } from 'react';
+import HomePage from '../Pages/HomePage';
+import CartPage from '../Pages/CartPage';
+import CheckoutPage from '../Pages/CheckoutPage';
 
 function App() {
 
-  /* Gestion Cart */
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
   });
+
+  const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -59,11 +64,44 @@ function App() {
 
   
   return (
-    <div>
-      <Banner cartItems={cart} onRemoveFromCart={removeFromCart} onClearCart={clearCart} />
-      <ShoppingList onAddToCart={addToCart} />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Banner cartItemsCount={cartItemsCount} />
+        <div className="main-content">
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <HomePage 
+                  cart={cart} 
+                  addToCart={addToCart} 
+                />
+              } 
+            />
+            <Route 
+              path="/cart" 
+              element={
+                <CartPage 
+                  cart={cart} 
+                  removeFromCart={removeFromCart} 
+                  clearCart={clearCart} 
+                />
+              } 
+            />
+            <Route 
+              path="/checkout" 
+              element={
+                <CheckoutPage 
+                  cart={cart} 
+                  cartItemsCount={cartItemsCount} 
+                />
+              } 
+            />
+          </Routes>
+        </div>
+        <Footer/>
+      </div>
+    </BrowserRouter>
   );
 }
 
