@@ -1,6 +1,6 @@
 import '../styles/Cart.css';
 
-function Cart({ cartItems, onRemoveFromCart, onClearCart }) {
+function Cart({ cartItems, removeFromCart, clearCart }) {
 
     const totalItems = cartItems.reduce((sum, item) =>
         sum + item.quantity, 0)
@@ -9,10 +9,10 @@ function Cart({ cartItems, onRemoveFromCart, onClearCart }) {
 
     const handleRemoveFromCart = (id) => {
         console.log("l'id suppimé: ", id);
-        onRemoveFromCart(id);
+        removeFromCart(id);
     };
     const handleClearCart = () => {
-        onClearCart();
+        clearCart();
     }
     
     
